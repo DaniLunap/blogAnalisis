@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Elen | Proyecto de Análisis y Diseño de Sistemas</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --tienda-primario: #0f766e;
+      --tienda-primario-oscuro: #115e59;
+      --tienda-acento: #f59e0b;
+      --tienda-fondo-suave: #f3f7f6;
+    }
+    body { background: #fff; }
+    .btn-tienda { background: var(--tienda-primario); border-color: var(--tienda-primario); color: #fff; }
+    .btn-tienda:hover { background: var(--tienda-primario-oscuro); border-color: var(--tienda-primario-oscuro); color: #fff; }
+    .text-tienda { color: var(--tienda-primario) !important; }
+    .bg-tienda { background: var(--tienda-primario) !important; }
+    .bg-suave { background: var(--tienda-fondo-suave); }
+
+    /* Barra superior */
+    .navbar .nav-link { font-weight: 500; }
+    .navbar .nav-link.activo, .navbar .dropdown-item.activo { color: var(--tienda-primario); }
+    .navbar .nav-link.activo { box-shadow: inset 0 -3px 0 var(--tienda-primario); }
+    .navbar .dropdown-item.activo { background: var(--tienda-fondo-suave); font-weight: 600; }
+    .dropdown-menu { max-height: 70vh; overflow-y: auto; }
+
+    /* Portada */
+    .portada { background: linear-gradient(120deg, var(--tienda-primario) 0%, #134e4a 100%); color: #fff; min-height: 70vh; display: grid; align-items: center; }
+    .portada h1 { font-size: clamp(4rem, 14vw, 9rem); font-weight: 800; letter-spacing: -.04em; line-height: 1; }
+    .portada .linea { width: 96px; height: 6px; background: var(--tienda-acento); border-radius: 3px; }
+
+    /* Secciones */
+    .seccion-titulo { font-weight: 800; letter-spacing: -.02em; }
+    .seccion-etiqueta { text-transform: uppercase; letter-spacing: .08em; font-size: .8rem; font-weight: 700; }
+    .pista { background: var(--tienda-fondo-suave); border-left: 4px solid var(--tienda-primario); }
+    .indice a { text-decoration: none; color: inherit; }
+    .indice a:hover { color: var(--tienda-primario); }
+    .indice .list-group-item { cursor: pointer; }
+
+    /* Árbol de problemas */
+    .arbol { display: grid; gap: .75rem; }
+    .arbol .fila { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; }
+    .arbol .caja { border-radius: .5rem; padding: .75rem; text-align: center; font-size: .9rem; }
+    .arbol .efecto { background: #fde8e8; border: 1px solid #f5b5b5; }
+    .arbol .central { background: var(--tienda-primario); color: #fff; font-weight: 700; padding: 1rem; }
+    .arbol .causa { background: #fff4d6; border: 1px solid #f3d27a; }
+    .arbol .flecha { text-align: center; color: #6c757d; font-size: 1.25rem; line-height: 1; }
+    @media (max-width: 575.98px) { .arbol .fila { grid-template-columns: 1fr; } }
+
+    /* Gantt */
+    .gantt th, .gantt td { text-align: center; vertical-align: middle; font-size: .85rem; }
+    .gantt td.tarea { text-align: left; min-width: 220px; }
+    .gantt td.barra { background: var(--tienda-primario); }
+    .gantt td.hito { background: var(--tienda-acento); }
+
+    .marcador { border: 2px dashed #b8c4c2; border-radius: .75rem; min-height: 220px; display: grid; place-items: center; text-align: center; color: #6c757d; padding: 1rem; }
+  </style>
+</head>
+<body>
+
+  <!-- Barra superior -->
+  <nav class="navbar navbar-expand-xl bg-white border-bottom sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-tienda fs-4" href="#portada" data-ir="portada"><i class="bi bi-diagram-3-fill me-1"></i>Elen</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav me-auto mb-2 mb-xl-0">
+          <li class="nav-item"><a class="nav-link" href="#portada" data-ir="portada">Portada</a></li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="grupo-I">I. Generalidades y marco teórico</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#contenido" data-ir="contenido">Tabla de contenido</a></li>
+              <li><a class="dropdown-item" href="#introduccion" data-ir="introduccion">Introducción</a></li>
+              <li><a class="dropdown-item" href="#antecedentes" data-ir="antecedentes">Antecedentes</a></li>
+              <li><a class="dropdown-item" href="#planteamiento" data-ir="planteamiento">Planteamiento del problema</a></li>
+              <li><a class="dropdown-item" href="#arbol" data-ir="arbol">Árbol de problemas</a></li>
+              <li><a class="dropdown-item" href="#formulacion" data-ir="formulacion">Formulación del problema</a></li>
+              <li><a class="dropdown-item" href="#objetivos" data-ir="objetivos">Propósito del estudio (objetivos)</a></li>
+              <li><a class="dropdown-item" href="#metodo" data-ir="metodo">Método, medios e instrumentos</a></li>
+              <li><a class="dropdown-item" href="#planificacion" data-ir="planificacion">Planificación de actividades</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item"><a class="nav-link" href="#estructurado" data-ir="estructurado">II. Análisis y diseño estructurado</a></li>
+          <li class="nav-item"><a class="nav-link" href="#oo" data-ir="oo">III. Análisis y diseño orientado a objetos</a></li>
+        </ul>
+        <span class="navbar-text small">Análisis y Diseño de Sistemas</span>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- PORTADA -->
+    <section id="p-portada" class="panel">
+      <header class="portada py-5">
+        <div class="container py-lg-4">
+          <div class="row">
+            <div class="col-lg-9">
+              <div class="seccion-etiqueta text-warning mb-3">Proyecto de Análisis y Diseño de Sistemas</div>
+              <h1>Elen</h1>
+              <div class="linea my-4"></div>
+              <p class="lead opacity-75 mb-4">Escribe aquí el título completo del tema. Desarrollado con Análisis Estructurado y con Orientación a Objetos (UML).</p>
+              <div class="opacity-75">
+                <div><i class="bi bi-bank me-2"></i>Universidad Mayor de San Andrés · Carrera de Informática</div>
+                <div><i class="bi bi-people me-2"></i>Grupo: <em>(integrantes, de 4 a 6 personas)</em></div>
+                <div><i class="bi bi-person-badge me-2"></i>Docente: <em>(nombre del docente)</em></div>
+                <div><i class="bi bi-calendar-event me-2"></i>La Paz, Bolivia · 2026</div>
+              </div>
+              <div class="d-flex flex-wrap gap-2 mt-4">
+                <button class="btn btn-warning btn-lg" data-ir="contenido">Ver tabla de contenido</button>
+                <button class="btn btn-outline-light btn-lg" data-ir="introduccion">Empezar a leer</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    </section>
+
+    <!-- TABLA DE CONTENIDO -->
+    <section id="p-contenido" class="panel d-none py-5">
+      <div class="container">
+        <div class="seccion-etiqueta text-tienda">Parte I</div>
+        <h2 class="seccion-titulo mb-4">Tabla de contenido</h2>
+        <div class="list-group indice">
+          <a class="list-group-item list-group-item-action" data-ir="portada"><strong>Portada</strong></a>
+          <a class="list-group-item list-group-item-action bg-suave"><strong>I. Generalidades y marco teórico</strong></a>
+          <a class="list-group-item list-group-item-action ps-4" data-ir="contenido">1. Tabla de contenido</a>
+          <a class="list-group-item list-group-item-action ps-4" data-ir="introduccion">2. Introducción</a>
+          <a class="list-group-item list-group-item-action ps-4" data-ir="antecedentes">3. Antecedentes</a>
+          <a class="list-group-item list-group-item-action ps-4" data-ir="planteamiento">4. Planteamiento del problema</a>
+          <a class="list-group-item list-group-item-action ps-4" data-ir="arbol">5. Árbol de problemas</a>
+          <a class="list-group-item list-group-item-action ps-4" data-ir="formulacion">6. Formulación del problema</a>
+          <a class="list-group-item list-group-item-action ps-4" data-ir="objetivos">7. Propósito del estudio (objetivo general y específicos)</a>
+          <a class="list-group-item list-group-item-action ps-4" data-ir="metodo">8. Método, medios e instrumentos de investigación, justificación y alcances</a>
+          <a class="list-group-item list-group-item-action ps-4" data-ir="planificacion">9. Planificación de actividades</a>
+          <a class="list-group-item list-group-item-action bg-suave" data-ir="estructurado"><strong>II. Análisis y diseño estructurado</strong></a>
+          <a class="list-group-item list-group-item-action bg-suave" data-ir="oo"><strong>III. Análisis y diseño orientado a objetos</strong></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRODUCCIÓN -->
+    <section id="p-introduccion" class="panel d-none py-5">
+      <div class="container" style="max-width: 860px;">
+        <div class="seccion-etiqueta text-tienda">Parte I</div>
+        <h2 class="seccion-titulo mb-4">Introducción</h2>
+        <div class="pista p-3 rounded mb-4 small">
+          <strong>Qué incluir:</strong> presenta el tema de Elen, por qué es relevante, qué paradigmas se aplican (Análisis Estructurado y Orientación a Objetos con UML) y cómo está organizado el documento.
+        </div>
+        <p>Escribe aquí la introducción del proyecto.</p>
+        <p>Primer párrafo: contexto general del tema. Segundo párrafo: qué se hará en el trabajo. Tercer párrafo: estructura del documento.</p>
+      </div>
+    </section>
+
+    <!-- ANTECEDENTES -->
+    <section id="p-antecedentes" class="panel d-none py-5">
+      <div class="container" style="max-width: 860px;">
+        <div class="seccion-etiqueta text-tienda">Parte I</div>
+        <h2 class="seccion-titulo mb-4">Antecedentes</h2>
+        <div class="pista p-3 rounded mb-4 small">
+          <strong>Qué incluir:</strong> qué se ha hecho antes sobre este tema o sistemas parecidos, la situación actual y las fuentes consultadas.
+        </div>
+        <p>Escribe aquí los antecedentes del tema.</p>
+        <ul>
+          <li>Antecedente 1 (fuente, año)</li>
+          <li>Antecedente 2 (fuente, año)</li>
+          <li>Antecedente 3 (fuente, año)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PLANTEAMIENTO -->
+    <section id="p-planteamiento" class="panel d-none py-5">
+      <div class="container" style="max-width: 860px;">
+        <div class="seccion-etiqueta text-tienda">Parte I</div>
+        <h2 class="seccion-titulo mb-4">Planteamiento del problema</h2>
+        <div class="pista p-3 rounded mb-4 small">
+          <strong>Qué incluir:</strong> describe la situación problemática, quiénes la sufren, dónde ocurre y qué consecuencias tiene.
+        </div>
+        <p>Describe aquí el problema que Elen busca resolver.</p>
+      </div>
+    </section>
+
+    <!-- ÁRBOL DE PROBLEMAS -->
+    <section id="p-arbol" class="panel d-none py-5">
+      <div class="container" style="max-width: 960px;">
+        <div class="seccion-etiqueta text-tienda">Parte I</div>
+        <h2 class="seccion-titulo mb-4">Árbol de problemas</h2>
+        <div class="pista p-3 rounded mb-4 small">
+          <strong>Cómo leerlo:</strong> los <em>efectos</em> van arriba, el <em>problema central</em> en el medio y las <em>causas</em> abajo. Cambia los textos y, para la entrega impresa, dibújalo con una herramienta automatizada (Draw.io, por ejemplo).
+        </div>
+        <div class="arbol">
+          <div class="fila">
+            <div class="caja efecto">Efecto 1</div>
+            <div class="caja efecto">Efecto 2</div>
+            <div class="caja efecto">Efecto 3</div>
+          </div>
+          <div class="flecha"><i class="bi bi-arrow-up"></i> Efectos</div>
+          <div class="caja central">Problema central: describe aquí el problema</div>
+          <div class="flecha"><i class="bi bi-arrow-up"></i> Causas</div>
+          <div class="fila">
+            <div class="caja causa">Causa 1</div>
+            <div class="caja causa">Causa 2</div>
+            <div class="caja causa">Causa 3</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULACIÓN -->
+    <section id="p-formulacion" class="panel d-none py-5">
+      <div class="container" style="max-width: 860px;">
+        <div class="seccion-etiqueta text-tienda">Parte I</div>
+        <h2 class="seccion-titulo mb-4">Formulación del problema</h2>
+        <div class="pista p-3 rounded mb-4 small">
+          <strong>Qué incluir:</strong> el problema expresado como una pregunta clara, con una pregunta central y, si hace falta, preguntas secundarias.
+        </div>
+        <blockquote class="blockquote border-start border-4 ps-3" style="border-color: var(--tienda-primario) !important;">
+          <p class="mb-0">¿Cómo ...? Escribe aquí la pregunta de investigación.</p>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- OBJETIVOS -->
+    <section id="p-objetivos" class="panel d-none py-5">
+      <div class="container" style="max-width: 860px;">
+        <div class="seccion-etiqueta text-tienda">Parte I</div>
+        <h2 class="seccion-titulo mb-4">Propósito del estudio</h2>
+        <h3 class="h5 fw-bold">Objetivo general</h3>
+        <p class="mb-4">Verbo en infinitivo + qué se logrará + para qué. Ejemplo: <em>Analizar y diseñar el sistema Elen aplicando el Análisis Estructurado y la Orientación a Objetos.</em></p>
+        <h3 class="h5 fw-bold">Objetivos específicos</h3>
+        <ol>
+          <li>Describir la situación actual y los requerimientos del sistema.</li>
+          <li>Elaborar el modelo del sistema con Análisis y Diseño Estructurado.</li>
+          <li>Elaborar el modelo del sistema con Análisis y Diseño Orientado a Objetos usando UML.</li>
+          <li>Comparar ambos enfoques y documentar los resultados.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- MÉTODO -->
+    <section id="p-metodo" class="panel d-none py-5">
+      <div class="container" style="max-width: 860px;">
+        <div class="seccion-etiqueta text-tienda">Parte I</div>
+        <h2 class="seccion-titulo mb-4">Método, medios e instrumentos de investigación</h2>
+        <div class="accordion" id="acordeonMetodo">
+          <div class="accordion-item">
+            <h3 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#m1">Método y metodología</button></h3>
+            <div id="m1" class="accordion-collapse collapse show" data-bs-parent="#acordeonMetodo">
+              <div class="accordion-body">Indica el tipo de investigación y la metodología de desarrollo que se usará (por ejemplo, desarrollo iterativo e incremental).</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#m2">Medios e instrumentos</button></h3>
+            <div id="m2" class="accordion-collapse collapse" data-bs-parent="#acordeonMetodo">
+              <div class="accordion-body">Técnicas para recolectar información (entrevistas, encuestas, observación, revisión de documentos) y herramientas de modelado (StarUML, Draw.io, Visual Paradigm).</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#m3">Justificación</button></h3>
+            <div id="m3" class="accordion-collapse collapse" data-bs-parent="#acordeonMetodo">
+              <div class="accordion-body">Explica por qué vale la pena hacer este trabajo: justificación técnica, social, económica y académica.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#m4">Alcances y límites</button></h3>
+            <div id="m4" class="accordion-collapse collapse" data-bs-parent="#acordeonMetodo">
+              <div class="accordion-body">Qué cubre el trabajo y qué queda fuera.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLANIFICACIÓN -->
+    <section id="p-planificacion" class="panel d-none py-5">
+      <div class="container">
+        <div class="seccion-etiqueta text-tienda">Parte I</div>
+        <h2 class="seccion-titulo mb-2">Planificación de actividades</h2>
+        <p class="text-muted">Diagrama de Gantt de ejemplo por semanas, con las fechas del enunciado (blog hasta el 27-29 de octubre y entrega el 8 de diciembre de 2026). Ajústalo a tu grupo.</p>
+        <div class="table-responsive">
+          <table class="table table-bordered gantt" id="gantt"></table>
+        </div>
+        <div class="small text-muted"><span class="badge bg-tienda me-1">&nbsp;</span> Actividad &nbsp; <span class="badge me-1" style="background: var(--tienda-acento);">&nbsp;</span> Entrega o hito</div>
+      </div>
+    </section>
+
+    <!-- II. ESTRUCTURADO -->
+    <section id="p-estructurado" class="panel d-none py-5">
+      <div class="container">
+        <div class="seccion-etiqueta text-tienda">Parte II</div>
+        <h2 class="seccion-titulo mb-4">Análisis y diseño estructurado</h2>
+
+        <ul class="nav nav-pills mb-4 flex-wrap gap-1" role="tablist">
+          <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#e1" type="button" role="tab">Requerimientos</button></li>
+          <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#e2" type="button" role="tab">Diagrama de contexto</button></li>
+          <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#e3" type="button" role="tab">DFD por niveles</button></li>
+          <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#e4" type="button" role="tab">Diccionario de datos</button></li>
+          <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#e5" type="button" role="tab">Especificación de procesos</button></li>
+          <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#e6" type="button" role="tab">Modelo de datos (DER)</button></li>
+        </ul>
+
+        <div class="tab-content">
+          <div class="tab-pane fade show active" id="e1" role="tabpanel"><h3 class="h5 fw-bold">Requerimientos del sistema</h3><p>Lista de requerimientos funcionales y no funcionales.</p><div class="marcador">Agrega aquí la tabla de requerimientos</div></div>
+          <div class="tab-pane fade" id="e2" role="tabpanel"><h3 class="h5 fw-bold">Diagrama de contexto</h3><p>El sistema como un solo proceso, con sus entidades externas y flujos de datos.</p><div class="marcador"><div><i class="bi bi-image fs-1"></i><div>Inserta aquí la imagen del diagrama</div></div></div></div>
+          <div class="tab-pane fade" id="e3" role="tabpanel"><h3 class="h5 fw-bold">Diagramas de flujo de datos</h3><p>Nivel 0, nivel 1 y niveles inferiores.</p><div class="marcador"><div><i class="bi bi-image fs-1"></i><div>Inserta aquí los DFD</div></div></div></div>
+          <div class="tab-pane fade" id="e4" role="tabpanel"><h3 class="h5 fw-bold">Diccionario de datos</h3><p>Flujos, almacenes y elementos de datos.</p>
+            <div class="table-responsive"><table class="table table-sm table-bordered"><thead class="table-light"><tr><th>Nombre</th><th>Tipo</th><th>Composición</th><th>Descripción</th></tr></thead><tbody><tr><td>Ejemplo</td><td>Flujo de datos</td><td>campo1 + campo2</td><td>Describe el dato</td></tr></tbody></table></div></div>
+          <div class="tab-pane fade" id="e5" role="tabpanel"><h3 class="h5 fw-bold">Especificación de procesos</h3><p>Descripción de cada proceso con pseudocódigo, tabla de decisión o árbol de decisión.</p><div class="marcador">Agrega aquí las especificaciones</div></div>
+          <div class="tab-pane fade" id="e6" role="tabpanel"><h3 class="h5 fw-bold">Modelo de datos</h3><p>Diagrama entidad-relación y modelo relacional.</p><div class="marcador"><div><i class="bi bi-image fs-1"></i><div>Inserta aquí el DER</div></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- III. ORIENTADO A OBJETOS -->
+    <section id="p-oo" class="panel d-none py-5">
+      <div class="container">
+        <div class="seccion-etiqueta text-tienda">Parte III</div>
+        <h2 class="seccion-titulo mb-4">Análisis y diseño orientado a objetos</h2>
+
+        <ul class="nav nav-pills mb-4 flex-wrap gap-1" role="tablist">
+          <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#o1" type="button" role="tab">Casos de uso</button></li>
+          <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#o2" type="button" role="tab">Diagrama de clases</button></li>
+          <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#o3" type="button" role="tab">Secuencia</button></li>
+          <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#o4" type="button" role="tab">Actividades</button></li>
+          <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#o5" type="button" role="tab">Estados</button></li>
+          <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#o6" type="button" role="tab">Componentes y despliegue</button></li>
+        </ul>
+
+        <div class="tab-content">
+          <div class="tab-pane fade show active" id="o1" role="tabpanel"><h3 class="h5 fw-bold">Diagrama de casos de uso</h3><p>Actores, casos de uso y sus especificaciones.</p><div class="marcador"><div><i class="bi bi-image fs-1"></i><div>Inserta aquí el diagrama UML</div></div></div></div>
+          <div class="tab-pane fade" id="o2" role="tabpanel"><h3 class="h5 fw-bold">Diagrama de clases</h3><p>Clases, atributos, métodos y relaciones.</p><div class="marcador"><div><i class="bi bi-image fs-1"></i><div>Inserta aquí el diagrama UML</div></div></div></div>
+          <div class="tab-pane fade" id="o3" role="tabpanel"><h3 class="h5 fw-bold">Diagramas de secuencia</h3><p>Interacción entre objetos para los casos de uso principales.</p><div class="marcador"><div><i class="bi bi-image fs-1"></i><div>Inserta aquí el diagrama UML</div></div></div></div>
+          <div class="tab-pane fade" id="o4" role="tabpanel"><h3 class="h5 fw-bold">Diagramas de actividades</h3><p>Flujo de trabajo de los procesos clave.</p><div class="marcador"><div><i class="bi bi-image fs-1"></i><div>Inserta aquí el diagrama UML</div></div></div></div>
+          <div class="tab-pane fade" id="o5" role="tabpanel"><h3 class="h5 fw-bold">Diagramas de estados</h3><p>Ciclo de vida de los objetos más importantes.</p><div class="marcador"><div><i class="bi bi-image fs-1"></i><div>Inserta aquí el diagrama UML</div></div></div></div>
+          <div class="tab-pane fade" id="o6" role="tabpanel"><h3 class="h5 fw-bold">Diagramas de componentes y de despliegue</h3><p>Arquitectura física y lógica del sistema.</p><div class="marcador"><div><i class="bi bi-image fs-1"></i><div>Inserta aquí el diagrama UML</div></div></div></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-dark text-white-50 py-4 mt-4">
+    <div class="container d-flex flex-wrap justify-content-between gap-2 small">
+      <span>Elen · Análisis y Diseño de Sistemas · 2026</span>
+      <span>Entrega, URL y defensa: 8 de diciembre de 2026</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Navegación por pestañas: muestra una sección a la vez
+    const paneles = document.querySelectorAll('.panel');
+    const disparadores = document.querySelectorAll('[data-ir]');
+    const gruposI = ['contenido','introduccion','antecedentes','planteamiento','arbol','formulacion','objetivos','metodo','planificacion'];
+
+    function ir(id, actualizarHash) {
+      if (!document.getElementById('p-' + id)) id = 'portada';
+      paneles.forEach(p => p.classList.toggle('d-none', p.id !== 'p-' + id));
+      document.querySelectorAll('.navbar [data-ir]').forEach(el => {
+        el.classList.toggle('activo', el.dataset.ir === id);
+      });
+      document.getElementById('grupo-I').classList.toggle('activo', gruposI.includes(id));
+      if (actualizarHash !== false) history.replaceState(null, '', '#' + id);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      const menu = document.getElementById('menu');
+      if (menu.classList.contains('show')) bootstrap.Collapse.getOrCreateInstance(menu).hide();
+    }
+
+    disparadores.forEach(el => el.addEventListener('click', e => { e.preventDefault(); ir(el.dataset.ir); }));
+    window.addEventListener('hashchange', () => ir(location.hash.slice(1), false));
+
+    // Diagrama de Gantt de ejemplo (semanas que empiezan el lunes)
+    const semanas = ['26 oct', '2 nov', '9 nov', '16 nov', '23 nov', '30 nov', '7 dic'];
+    const tareas = [
+      { nombre: 'Definir tema y crear el blog', de: 0, a: 0 },
+      { nombre: 'Parte I: generalidades y marco teórico', de: 0, a: 1 },
+      { nombre: 'Parte II: análisis y diseño estructurado', de: 1, a: 3 },
+      { nombre: 'Parte III: análisis y diseño orientado a objetos', de: 2, a: 4 },
+      { nombre: 'Revisión y correcciones', de: 4, a: 5 },
+      { nombre: 'Documento impreso (formato exigido)', de: 5, a: 6 },
+      { nombre: 'Publicar URL, entregar y defender (8 dic)', de: 6, a: 6, hito: true }
+    ];
+    const t = document.getElementById('gantt');
+    let html = '<thead class="table-light"><tr><th class="text-start">Actividad</th>' +
+      semanas.map(s => '<th>' + s + '</th>').join('') + '</tr></thead><tbody>';
+    tareas.forEach(x => {
+      html += '<tr><td class="tarea">' + x.nombre + '</td>';
+      semanas.forEach((_, i) => {
+        const dentro = i >= x.de && i <= x.a;
+        html += '<td class="' + (dentro ? (x.hito ? 'hito' : 'barra') : '') + '"></td>';
+      });
+      html += '</tr>';
+    });
+    t.innerHTML = html + '</tbody>';
+
+    ir(location.hash.slice(1) || 'portada', false);
+  </script>
+</body>
+</html>
