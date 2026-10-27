@@ -53,52 +53,56 @@
     @media (max-width: 575.98px) { .arbol .fila { grid-template-columns: 1fr; } }
 
     /* Gantt */
-   .cronograma {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-}
+    .cronograma {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    }
 
-.actividad {
-  width: 100%;
-}
+    .actividad {
+      width: 100%;
+    }
 
-.actividad span {
-  font-weight: 500;
-  font-size: 14px;
-}
+    .actividad span {
+      font-weight: 500;
+      font-size: 14px;
+    }
 
-.actividad small {
-  color: #777;
-}
+    .actividad small {
+      color: #777;
+    }
 
-.barra-fondo {
-  width: 100%;
-  height: 16px;
-  background: #ececf3;
-  border-radius: 8px;
-  margin-top: 8px;
-  position: relative;
-  overflow: hidden;
-}
+    .barra-fondo {
+      width: 100%;
+      height: 16px;
+      background: #ececf3;
+      border-radius: 8px;
+      margin-top: 8px;
+      position: relative;
+      overflow: hidden;
+    }
 
-.barra-actividad {
-  position: absolute;
-  left: var(--inicio);
-  width: var(--duracion);
-  height: 100%;
-  background: var(--tienda, #6960d7);
-  border-radius: 8px;
-  transition: opacity 0.3s ease;
-}
+    .barra-actividad {
+      position: absolute;
+      left: var(--inicio);
+      width: var(--duracion);
+      height: 100%;
+      background: var(--tienda, #6960d7);
+      border-radius: 8px;
+      transition: opacity 0.3s ease;
+    }
 
-.barra-actividad:hover {
-  opacity: 0.75;
-}
+    .barra-actividad:hover {
+      opacity: 0.75;
+    }
 
-.barra-actividad.hito {
-  background: var(--tienda-acento, #e9a23b);
-}
+    .barra-actividad.hito {
+      background: var(--tienda-acento, #e9a23b);
+    }
+
+  </style>
+</head>
+<body>
 
   <!-- Barra superior -->
   <nav class="navbar navbar-expand-xl bg-white border-bottom sticky-top">
@@ -460,105 +464,105 @@
         </section>
 
     <!-- PLANIFICACIÓN -->
-   <section id="p-planificacion" class="panel d-none py-5">
-  <div class="container">
-    <div class="seccion-etiqueta text-tienda">Parte I</div>
-    <h2 class="seccion-titulo mb-2">Planificación de actividades</h2>
-    <p class="text-muted mb-4">
-      Cronograma de actividades del proyecto,
-      de octubre a diciembre de 2026.
-    </p>
+    <section id="p-planificacion" class="panel d-none py-5">
+      <div class="container">
+        <div class="seccion-etiqueta text-tienda">Parte I</div>
+        <h2 class="seccion-titulo mb-2">Planificación de actividades</h2>
+        <p class="text-muted mb-4">
+          Cronograma de actividades del proyecto,
+          de octubre a diciembre de 2026.
+        </p>
 
-    <div class="card shadow-sm border-0">
-      <div class="card-body p-4">
-        <h5 class="mb-4">Cronograma del proyecto</h5>
+        <div class="card shadow-sm border-0">
+          <div class="card-body p-4">
+            <h5 class="mb-4">Cronograma del proyecto</h5>
 
-        <div class="cronograma">
+            <div class="cronograma">
 
-          <div class="actividad">
-            <div class="d-flex justify-content-between">
-              <span>Planificación inicial</span>
+              <div class="actividad">
+                <div class="d-flex justify-content-between">
+                  <span>Planificación inicial</span>
+                  <small>Octubre</small>
+                </div>
+                <div class="barra-fondo">
+                  <div class="barra-actividad"
+                      style="--inicio:0%; --duracion:20%;"></div>
+                </div>
+              </div>
+
+              <div class="actividad">
+                <div class="d-flex justify-content-between">
+                  <span>Desarrollo del blog</span>
+                  <small>Octubre</small>
+                </div>
+                <div class="barra-fondo">
+                  <div class="barra-actividad"
+                      style="--inicio:4%; --duracion:26%;"></div>
+                </div>
+              </div>
+
+              <div class="actividad">
+                <div class="d-flex justify-content-between">
+                  <span>Investigación</span>
+                  <small>Octubre - Noviembre</small>
+                </div>
+                <div class="barra-fondo">
+                  <div class="barra-actividad"
+                      style="--inicio:20%; --duracion:37%;"></div>
+                </div>
+              </div>
+
+              <div class="actividad">
+                <div class="d-flex justify-content-between">
+                  <span>Desarrollo del proyecto</span>
+                  <small>Noviembre</small>
+                </div>
+                <div class="barra-fondo">
+                  <div class="barra-actividad"
+                      style="--inicio:35%; --duracion:49%;"></div>
+                </div>
+              </div>
+
+              <div class="actividad">
+                <div class="d-flex justify-content-between">
+                  <span>Revisión y pruebas</span>
+                  <small>Diciembre</small>
+                </div>
+                <div class="barra-fondo">
+                  <div class="barra-actividad"
+                      style="--inicio:70%; --duracion:22%;"></div>
+                </div>
+              </div>
+
+              <div class="actividad">
+                <div class="d-flex justify-content-between">
+                  <span>Entrega final</span>
+                  <small>8 de diciembre</small>
+                </div>
+                <div class="barra-fondo">
+                  <div class="barra-actividad hito"
+                      style="--inicio:94%; --duracion:6%;"></div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="d-flex justify-content-between mt-3">
               <small>Octubre</small>
-            </div>
-            <div class="barra-fondo">
-              <div class="barra-actividad"
-                   style="--inicio:0%; --duracion:20%;"></div>
-            </div>
-          </div>
-
-          <div class="actividad">
-            <div class="d-flex justify-content-between">
-              <span>Desarrollo del blog</span>
-              <small>Octubre</small>
-            </div>
-            <div class="barra-fondo">
-              <div class="barra-actividad"
-                   style="--inicio:4%; --duracion:26%;"></div>
-            </div>
-          </div>
-
-          <div class="actividad">
-            <div class="d-flex justify-content-between">
-              <span>Investigación</span>
-              <small>Octubre - Noviembre</small>
-            </div>
-            <div class="barra-fondo">
-              <div class="barra-actividad"
-                   style="--inicio:20%; --duracion:37%;"></div>
-            </div>
-          </div>
-
-          <div class="actividad">
-            <div class="d-flex justify-content-between">
-              <span>Desarrollo del proyecto</span>
               <small>Noviembre</small>
-            </div>
-            <div class="barra-fondo">
-              <div class="barra-actividad"
-                   style="--inicio:35%; --duracion:49%;"></div>
-            </div>
-          </div>
-
-          <div class="actividad">
-            <div class="d-flex justify-content-between">
-              <span>Revisión y pruebas</span>
               <small>Diciembre</small>
             </div>
-            <div class="barra-fondo">
-              <div class="barra-actividad"
-                   style="--inicio:70%; --duracion:22%;"></div>
+
+            <hr>
+
+            <div class="d-flex gap-3 flex-wrap small">
+              <span>🟣 Actividad</span>
+              <span>🟠 Entrega o hito</span>
             </div>
           </div>
-
-          <div class="actividad">
-            <div class="d-flex justify-content-between">
-              <span>Entrega final</span>
-              <small>8 de diciembre</small>
-            </div>
-            <div class="barra-fondo">
-              <div class="barra-actividad hito"
-                   style="--inicio:94%; --duracion:6%;"></div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="d-flex justify-content-between mt-3">
-          <small>Octubre</small>
-          <small>Noviembre</small>
-          <small>Diciembre</small>
-        </div>
-
-        <hr>
-
-        <div class="d-flex gap-3 flex-wrap small">
-          <span>🟣 Actividad</span>
-          <span>🟠 Entrega o hito</span>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- II. ESTRUCTURADO -->
     <section id="p-estructurado" class="panel d-none py-5">
