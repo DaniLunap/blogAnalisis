@@ -544,9 +544,9 @@
       <div class="container" style="max-width: 860px;">
         <div class="seccion-etiqueta text-tienda">Parte I</div>
         <h2 class="seccion-titulo mb-4">Planteamiento del problema</h2>
-        <p>Eleven es una tienda con varias sucursales que comercializa productos de rubros muy distintos: alimentos, bebidas, útiles escolares, regalos y accesorios electrónicos. Todas las sucursales comparten un mismo sistema de inventario desarrollado en Odoo, al que también accede en tiempo real la administradora general de las tiendas. En la sucursal estudiada trabajan tres empleados, cada uno con su propio usuario y contraseña.</p>
-        <p>Actualmente el sistema presenta problemas que afectan la confiabilidad de la información. El stock de algunos productos disminuye sin una causa identificada y, al compartirse el inventario entre sucursales, puede haber un producto disponible en una sucursal y agotado en otra. Además, existen productos que no están registrados: cuando un cliente solicita factura, se selecciona un producto de nombre similar y se modifica su precio, y lo que no se anota en el sistema principal se registra en un sistema aparte.</p>
-        <p>A esto se suma que el único cierre de caja se realiza al final del día y no existe un registro del total de ventas por turno. La reposición se hace de forma reactiva, llamando al proveedor cuando el producto se agota, y ante productos vencidos solo tres proveedores (Coca Cola, Torito y Agua Cielo) aceptan el cambio. En conjunto, esta situación dificulta contar con información confiable de ventas e inventario, por lo que se hace necesario analizar y diseñar una solución que permita resolverla.</p>
+        <p>MiniMarket Eleven es una tienda con varias sucursales que comercializa productos de rubros muy distintos: alimentos, bebidas, útiles escolares, regalos y accesorios electrónicos. Todas las sucursales comparten un mismo sistema desarrollado en Odoo, que se utiliza para facturar las ventas y controlar el inventario, y al que también accede en tiempo real la jefa de todas las tiendas. En la sucursal estudiada trabajan tres empleados, cada uno con su propio usuario y contraseña. Cabe señalar que no todos los productos se venden con factura, como los dulces y algunos artículos pequeños.</p>
+        <p>Actualmente el sistema de facturación presenta problemas que afectan la confiabilidad de la información. A veces el stock de los productos disminuye sin una razón identificada y, al compartirse el inventario entre sucursales, puede haber un producto disponible en una sucursal y agotado en otra. Además, existen productos que no están registrados: cuando un cliente solicita factura, se selecciona un producto de nombre similar y se modifica su precio, y lo que no se anota en el sistema principal se registra en un sistema aparte.</p>
+        <p>A esto se suma que el único cierre de caja se realiza al final del día y no existe un registro del total de ventas por turno. La reposición se hace de forma reactiva, llamando al proveedor cuando el producto se agota, y ante productos vencidos son pocos los proveedores que aceptan el cambio, entre ellos Coca Cola, Torito y Agua Cielo. En conjunto, esta situación dificulta contar con información confiable de ventas, facturación e inventario, por lo que se hace necesario analizar y diseñar una solución que permita resolverla.</p>
       </div>
     </section>
 
@@ -556,7 +556,7 @@
         <div class="seccion-etiqueta text-tienda">Parte I</div>
         <h2 class="seccion-titulo mb-4">Árbol de problemas</h2>
         <figure class="text-center">
-          <img src="imagenes/arbol-problemas.png"
+          <img src="imagenes/arbol-de-problemas.png"
                alt="Árbol de problemas de MiniMarket Eleven: efectos, problema central y causas"
                class="img-fluid border rounded">
           <figcaption class="small text-muted mt-2">Figura: Árbol de problemas. Elaboración propia.</figcaption>
@@ -571,14 +571,14 @@
         <h2 class="seccion-titulo mb-4">Formulación del problema</h2>
         <h3 class="h5 fw-bold">Pregunta central</h3>
         <blockquote class="blockquote border-start border-4 ps-3 mb-4" style="border-color: var(--tienda-primario) !important;">
-          <p class="mb-0">¿Cómo se puede lograr que la información de inventario y de ventas de MiniMarket Eleven sea confiable, mediante el análisis y diseño de un sistema?</p>
+          <p class="mb-0">¿Cómo se puede lograr que el sistema de facturación de MiniMarket Eleven registre de forma confiable las ventas y el inventario, mediante el análisis y diseño de un sistema?</p>
         </blockquote>
         <h3 class="h5 fw-bold">Preguntas secundarias</h3>
         <ol>
           <li>¿Cómo se pueden registrar los productos que hoy no están en el sistema, evitando facturar con productos de nombre similar?</li>
           <li>¿Cómo se puede conocer la disponibilidad real de cada producto en cada sucursal, con un inventario compartido?</li>
           <li>¿Cómo se puede controlar la caja y las ventas por turno, y no solo al cierre del día?</li>
-          <li>¿Cómo se puede planificar la reposición y el cambio de productos vencidos, sin depender de que el producto se agote?</li>
+          <li>¿Cómo se puede planificar la reposición y reducir las pérdidas por productos vencidos, sin depender de que el producto se agote?</li>
         </ol>
       </div>
     </section>
