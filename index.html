@@ -292,37 +292,172 @@
 
     <!-- MÉTODO -->
     <section id="p-metodo" class="panel d-none py-5">
-      <div class="container" style="max-width: 860px;">
-        <div class="seccion-etiqueta text-tienda">Parte I</div>
-        <h2 class="seccion-titulo mb-4">Método, medios e instrumentos de investigación</h2>
-        <div class="accordion" id="acordeonMetodo">
-          <div class="accordion-item">
-            <h3 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#m1">Método y metodología</button></h3>
-            <div id="m1" class="accordion-collapse collapse show" data-bs-parent="#acordeonMetodo">
-              <div class="accordion-body">Indica el tipo de investigación y la metodología de desarrollo que se usará (por ejemplo, desarrollo iterativo e incremental).</div>
+          <div class="container" style="max-width: 900px;">
+            <div class="seccion-etiqueta text-tienda">Parte I</div>
+            <h2 class="seccion-titulo mb-2">Metodo, medios e instrumentos de investigacion</h2>
+            <p class="text-muted mb-4">Minimarket Eleven · La Paz, Bolivia</p>
+
+            <ul class="nav nav-tabs mb-4 flex-wrap" role="tablist">
+              <li style="margin: 3px;" class="nav-item"><button class="btn btn-outline-primary active" data-bs-toggle="tab" data-bs-target="#mt-metodo" type="button" role="tab">Metodo</button></li>
+              <li style="margin: 3px;" class="nav-item"><button class="btn btn-outline-primary" data-bs-toggle="tab" data-bs-target="#mt-tecnicas" type="button" role="tab">Tecnicas e instrumentos</button></li>
+              <li style="margin: 3px;" class="nav-item"><button class="btn btn-outline-primary" data-bs-toggle="tab" data-bs-target="#mt-entrevista" type="button" role="tab">Entrevista</button></li>
+              <li style="margin: 3px;" class="nav-item"><button class="btn btn-outline-primary" data-bs-toggle="tab" data-bs-target="#mt-evidencias" type="button" role="tab">Evidencias</button></li>
+              <li style="margin: 3px;" class="nav-item"><button class="btn btn-outline-primary" data-bs-toggle="tab" data-bs-target="#mt-justificacion" type="button" role="tab">Justificacion</button></li>
+              <li style="margin: 3px;" class="nav-item"><button class="btn btn-outline-primary" data-bs-toggle="tab" data-bs-target="#mt-alcances" type="button" role="tab">Alcances</button></li>
+            </ul>
+
+            <div class="tab-content">
+
+              <div class="tab-pane fade show active" id="mt-metodo" role="tabpanel">
+                <div class="row align-items-center g-4">
+                  <div class="col-md-8">
+                    <h3 class="h5 fw-bold">Tipo de investigacion</h3>
+                    <p>La investigacion es <strong>descriptiva, de campo y aplicada</strong>. Es descriptiva porque detalla como funciona hoy el minimarket Eleven (ventas, inventario, compras y pagos). Es de campo porque la informacion se recogio en el propio local, en La Paz. Es aplicada porque su resultado es el analisis y diseño de un sistema que resuelva los problemas encontrados.</p>
+                    <h3 class="h5 fw-bold mt-4">Metodo de desarrollo</h3>
+                    <p>El trabajo se desarrolla de forma <strong>iterativa e incremental</strong>: cada parte se publica en este blog y se corrige en la siguiente entrega. El sistema se modela con dos paradigmas: <strong>Analisis y Diseño Estructurado</strong> (diagrama de contexto, DFD, diccionario de datos, DER) y <strong>Analisis y Diseño Orientado a Objetos</strong> con UML (casos de uso, clases, secuencia, actividades, estados, componentes y despliegue).</p>
+                  </div>
+                  <div class="col-md-4">
+                    <img src="./imagenes/metodo_1.jpg" class="img-fluid rounded d-block mx-auto" alt="Fachada del minimarket Eleven">
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="mt-tecnicas" role="tabpanel">
+                <div class="row row-cols-1 row-cols-md-2 g-4">
+                  <div class="col">
+                    <div class="card h-100">
+                      <div class="card-body">
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                          <i class="bi bi-chat-dots fs-3 text-tienda"></i>
+                          <h3 class="h5 fw-bold mb-0">Entrevista</h3>
+                        </div>
+                        <h4 class="h6 text-muted">Instrumento: guía de 10 preguntas abiertas</h4>
+                        <p class="card-text">Se aplico al encargado del minimarket Eleven para que explicara con sus propias palabras como trabaja el negocio. Permitio conocer como se registran las ventas, el inventario, las compras y los pagos, cuales son los problemas mas frecuentes (como el inventario mal actualizado) y qué espera de un nuevo sistema. Sus respuestas son la base de los requerimientos y de los diagramas.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100">
+                      <div class="card-body">
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                          <i class="bi bi-eye fs-3 text-tienda"></i>
+                          <h3 class="h5 fw-bold mb-0">Observacion directa</h3>
+                        </div>
+                        <h4 class="h6 text-muted">Instrumento: registro escrito de lo observado en el local</h4>
+                        <p class="card-text">Consistio en observar el local durante su funcionamiento, sin intervenir: como se usa el sistema de caja, como atienden los trabajadores y como se cobra por efectivo, QR o tarjeta. Sirve para comprobar lo dicho en la entrevista y detectar demoras o fallas que no se mencionaron.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100">
+                      <div class="card-body">
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                          <i class="bi bi-camera fs-3 text-tienda"></i>
+                          <h3 class="h5 fw-bold mb-0">Registro fotografico</h3>
+                        </div>
+                        <h4 class="h6 text-muted">Instrumento: fotos del local, la caja y el sistema</h4>
+                        <p class="card-text">Se tomaron fotografías para documentar el estado actual del negocio. Las imagenes respaldan lo observado y se incluyen como anexos del informe, con autorizacion del encargado.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100">
+                      <div class="card-body">
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                          <i class="bi bi-diagram-3 fs-3 text-tienda"></i>
+                          <h3 class="h5 fw-bold mb-0">Modelado</h3>
+                        </div>
+                        <h4 class="h6 text-muted">Instrumento: Draw.io</h4>
+                        <p class="card-text">Con los datos recogidos se elaboran todos los diagramas del proyecto con una herramienta automatizada: contexto, DFD, DER y los diagramas UML (casos de uso, clases, secuencia, actividades, estados, componentes y despliegue). Se modela una vez con el paradigma estructurado y otra con el orientado a objetos.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="mt-entrevista" role="tabpanel">
+                <div class="row g-3 mb-4">
+                  <div class="col-sm-6"><div class="card p-3 h-100"><div class="small text-muted">Lugar</div><strong>Minimarket Eleven, La Paz</strong></div></div>
+                  <div class="col-sm-6"><div class="card p-3 h-100"><div class="small text-muted">Fecha</div><strong>Lunes 26 de octubre de 2026</strong></div></div>
+                </div>
+                <h3 class="h5 fw-bold">Resultados</h3>
+                <ul>
+                  <li>El minimarket funciona hace <strong>6 años</strong> y tiene <strong>3 trabajadores</strong>.</li>
+                  <li>Las ventas y el inventario se manejan con un <strong>sistema de caja</strong>.</li>
+                  <li>Los <strong>proveedores llegan directamente</strong> al local a ofrecer productos y consultar si se necesita stock.</li>
+                  <li>Se aceptan pagos por <strong>QR, tarjeta y efectivo</strong>.</li>
+                  <li>El <strong>problema mas frecuente</strong> es que el inventario queda mal actualizado.</li>
+                  <li>El sistema actual actualiza el inventario de <strong>todas las sucursales a la vez</strong>; se necesita que cada sucursal tenga su propio inventario.</li>
+                  <li>Se necesita registrar <strong>ventas pequeñas desde Bs 0,50</strong>.</li>
+                  <li>Falta un <strong>lector de codigo de barras</strong>. El local cuenta con computadora y emite factura.</li>
+                  <li><strong>No se registran los productos mas vendidos.</strong></li><p></p>
+                  <img src="./imagenes/entrevista.jpg" style="width: 500px; margin-left: 120px;">
+                </ul>
+              </div>
+
+              <div class="tab-pane fade" id="mt-evidencias" role="tabpanel">
+                <div id="carouselEvidencias" class="carousel slide" data-bs-ride="false">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="mb-0">Imagenes</h5>
+                    <div class="d-flex gap-2">
+                      <button class="btn btn-outline-secondary btn-sm" type="button" data-bs-target="#carouselEvidencias" data-bs-slide="prev" aria-label="Retroceder">
+                        <i class="bi bi-chevron-left"></i>
+                      </button>
+                      <button class="btn btn-outline-secondary btn-sm" type="button" data-bs-target="#carouselEvidencias" data-bs-slide="next" aria-label="Siguiente">
+                        <i class="bi bi-chevron-right"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="carousel-inner rounded-4">
+                    <div class="carousel-item active">
+                      <img src="./imagenes/fachada.jpg" class="d-block w-100 object-fit-cover" style="aspect-ratio: 16 / 9;" >
+                    </div>
+                    <div class="carousel-item">
+                      <img src="./imagenes/Caja.jpg" class="d-block w-100 object-fit-cover" style="aspect-ratio: 16 / 9;" >
+                    </div>
+                    <div class="carousel-item">
+                      <img src="./imagenes/registro.jpg" class="d-block w-100 object-fit-cover" style="aspect-ratio: 16 / 9;" >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="mt-justificacion" role="tabpanel">
+                <h3 class="h5 fw-bold">Justificacion tecnica</h3>
+                <p>El sistema que usa actualmente el minimarket Eleven tiene un problema: cuando se actualiza el inventario, se actualizan todas las sucursales al mismo tiempo. Por eso los datos de cada sucursal quedan mal y no se sabe cuanto producto hay realmente en cada una. Ademas, el sistema no tiene lector de codigo de barras, asi que los productos se tienen que buscar o escribir a mano, y eso hace mas lento el cobro y causa errores. Tampoco se pueden registrar facilmente las ventas pequenas, desde Bs 0,50. Con un sistema nuevo, donde cada sucursal tenga su propio inventario, se puedan leer los codigos de barras y se registren las ventas de cualquier monto, estos problemas se pueden corregir</p>
+                <h3 class="h5 fw-bold">Justificacion economica</h3>
+                <p>Cuando el inventario esta mal actualizado, el negocio pierde dinero. A veces falta un producto y no se puede vender, y otras veces se compra mercaderia que ya estaba en la tienda. Tambien se pierden ventas pequenas que no se anotan. Ademas, hoy no se registra cuales son los productos que mas se venden, entonces el encargado no sabe bien que comprar ni en que cantidad. Si el sistema muestra los productos mas vendidos, se puede comprar mejor a los proveedores, evitar gastos que no hacen falta y vender mas</p>
+                <h3 class="h5 fw-bold">Justificacion social</h3>
+                <p>Con una mejor gestion del negocio, los 3 trabajadores del minimarket van a poder atender mas rapido y con menos errores, porque ya no tendran que corregir datos ni buscar los productos a mano. Los clientes tambien salen beneficiados, ya que van a encontrar los productos que buscan y van a esperar menos en la caja. Esto mejora el servicio y la confianza de las personas que compran en Eleven</p>
+              </div>
+
+              <div class="tab-pane fade" id="mt-alcances" role="tabpanel">
+                <div class="row g-4">
+                  <div class="col-md-6">
+                    <h3 class="h5 fw-bold">Alcances</h3>
+                    <ul>
+                      <li>Registro de ventas, incluidas las de montos pequeños desde Bs 0,50, con pago en efectivo, QR o tarjeta.</li>
+                      <li>Control de inventario independiente para cada sucursal.</li>
+                      <li>Lectura de productos con codigo de barras.</li>
+                      <li>Registro de compras y relacion con proveedores.</li>
+                      <li>Reporte de productos mas vendidos.</li><p></p>
+                      <img src="./imagenes/ganancias.jpg" style="height: 280px;">
+                    </ul>
+                  </div>
+                  <div class="col-md-6">
+                    <h3 class="h5 fw-bold">Límites</h3>
+                    <ul>
+                      <li>El trabajo llega hasta el analisis y diseño; no incluye programar ni implantar el sistema.</li>
+                      <li>Se estudia el minimarket Eleven y sus sucursales; no se analizan otros negocios.</li>
+                      <li>Quedan fuera la tienda en línea y la contabilidad completa del negocio.</li><p></p>
+                      <img src="./imagenes/perdidas.png" style="height: 280px;">
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="accordion-item">
-            <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#m2">Medios e instrumentos</button></h3>
-            <div id="m2" class="accordion-collapse collapse" data-bs-parent="#acordeonMetodo">
-              <div class="accordion-body">Técnicas para recolectar información (entrevistas, encuestas, observación, revisión de documentos) y herramientas de modelado (StarUML, Draw.io, Visual Paradigm).</div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#m3">Justificación</button></h3>
-            <div id="m3" class="accordion-collapse collapse" data-bs-parent="#acordeonMetodo">
-              <div class="accordion-body">Explica por qué vale la pena hacer este trabajo: justificación técnica, social, económica y académica.</div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#m4">Alcances y límites</button></h3>
-            <div id="m4" class="accordion-collapse collapse" data-bs-parent="#acordeonMetodo">
-              <div class="accordion-body">Qué cubre el trabajo y qué queda fuera.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
     <!-- PLANIFICACIÓN -->
    <section id="p-planificacion" class="panel d-none py-5">
