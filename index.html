@@ -14,6 +14,8 @@
       --tienda-primario-oscuro: #115e59;
       --tienda-acento: #f59e0b;
       --tienda-fondo-suave: #f3f7f6;
+      --eleven-rojo: #d62828;
+      --eleven-verde: #007f5f;
     }
     body { background: #fff; }
     .btn-tienda { background: var(--tienda-primario); border-color: var(--tienda-primario); color: #fff; }
@@ -53,52 +55,117 @@
     @media (max-width: 575.98px) { .arbol .fila { grid-template-columns: 1fr; } }
 
     /* Gantt */
-   .cronograma {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-}
+    .cronograma {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
 
-.actividad {
-  width: 100%;
-}
+    .actividad {
+      width: 100%;
+    }
 
-.actividad span {
-  font-weight: 500;
-  font-size: 14px;
-}
+    .actividad span {
+      font-weight: 500;
+      font-size: 14px;
+    }
 
-.actividad small {
-  color: #777;
-}
+    .actividad small {
+      color: #777;
+    }
 
-.barra-fondo {
-  width: 100%;
-  height: 16px;
-  background: #ececf3;
-  border-radius: 8px;
-  margin-top: 8px;
-  position: relative;
-  overflow: hidden;
-}
+    .barra-fondo {
+      width: 100%;
+      height: 16px;
+      background: #ececf3;
+      border-radius: 8px;
+      margin-top: 8px;
+      position: relative;
+      overflow: hidden;
+    }
 
-.barra-actividad {
-  position: absolute;
-  left: var(--inicio);
-  width: var(--duracion);
-  height: 100%;
-  background: var(--tienda, #6960d7);
-  border-radius: 8px;
-  transition: opacity 0.3s ease;
-}
+    .barra-actividad {
+      position: absolute;
+      left: var(--inicio);
+      width: var(--duracion);
+      height: 100%;
+      background: var(--tienda, #6960d7);
+      border-radius: 8px;
+      transition: opacity 0.3s ease;
+    }
 
-.barra-actividad:hover {
-  opacity: 0.75;
-}
+    .barra-actividad:hover {
+      opacity: 0.75;
+    }
 
-.barra-actividad.hito {
-  background: var(--tienda-acento, #e9a23b);
-}
+    .barra-actividad.hito {
+      background: var(--tienda-acento, #e9a23b);
+    }
+
+    .marcador { border: 2px dashed #b8c4c2; border-radius: .75rem; min-height: 220px; display: grid; place-items: center; text-align: center; color: #6c757d; padding: 1rem; }
+
+    /* Estilos exclusivos para Introducción y Antecedentes (Persona 2) */
+    .logo-eleven-box {
+      background: linear-gradient(180deg, var(--eleven-rojo) 0%, var(--eleven-rojo) 28%, #ffffff 28%, #ffffff 33%, var(--eleven-verde) 33%, var(--eleven-verde) 67%, #ffffff 67%, #ffffff 72%, var(--eleven-rojo) 72%, var(--eleven-rojo) 100%);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      min-height: 190px;
+    }
+    .logo-eleven-inner {
+      background: #ffffff;
+      border: 4px solid var(--eleven-verde);
+      border-radius: 0.75rem;
+      padding: 0.5rem 1.25rem;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+    .logo-eleven-num {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--eleven-rojo);
+      line-height: 0.9;
+      display: block;
+    }
+    .logo-eleven-text {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--eleven-verde);
+      letter-spacing: 0.12em;
+      background: #fff;
+      padding: 0 4px;
+      display: inline-block;
+    }
+    .card-contexto {
+      border: 1px solid #e2e8f0;
+      border-radius: 0.85rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card-contexto:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(15, 118, 110, 0.08);
+    }
+    .galeria-img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      border-radius: 0.75rem;
+      border: 1px solid #dee2e6;
+      background-color: var(--tienda-fondo-suave);
+    }
+    .badge-categoria {
+      background-color: var(--tienda-fondo-suave);
+      color: var(--tienda-primario-oscuro);
+      border: 1px solid #cbd5e1;
+      font-weight: 600;
+      padding: 0.45em 0.85em;
+    }
+  </style>
+</head>
+<body>
 
   <!-- Barra superior -->
   <nav class="navbar navbar-expand-xl bg-white border-bottom sticky-top">
@@ -194,43 +261,281 @@
       </div>
     </section>
 
-    <!-- INTRODUCCIÓN -->
+    <!-- INTRODUCCIÓN (Mejorada y estructurada) -->
     <section id="p-introduccion" class="panel d-none py-5">
-      <div class="container" style="max-width: 860px;">
-        <div class="seccion-etiqueta text-tienda">Parte I</div>
+      <div class="container" style="max-width: 920px;">
+        <div class="seccion-etiqueta text-tienda">Parte I · Generalidades</div>
         <h2 class="seccion-titulo mb-4">Introducción</h2>
-        <div class="pista p-3 rounded mb-4 small">
-          One Eleven un MiniMarket con una gran variedad de productos de calidad y buenos precios.
+        
+        <div class="pista p-4 rounded-3 mb-4 shadow-sm">
+          <div class="d-flex align-items-center gap-3">
+            <i class="bi bi-shop-window fs-2 text-tienda"></i>
+            <div>
+              <h3 class="h6 fw-bold mb-1 text-tienda">MiniMarket One Eleven (1 Eleven)</h3>
+              <p class="mb-0 small text-secondary">Comercio minorista en la ciudad de La Paz con amplia variedad de productos de consumo diario, abarrotes, lácteos, papelería y artículos de regalo a precios accesibles.</p>
+            </div>
+          </div>
         </div>
-        <p>Este MiniMarket proporciona productos de calidad y buen precio accesibles para todos, ofreciendo cosas básicas del hogar, herramientas sencillas, regalos, etc.</p>
-        <p>El MiniMarket 1 Eleven es una tienda de barrio dedicada a la venta de abarrotes, snacks y productos de consumo diario 
-           atendida por turnos de solo 1 o 2 personas que se encargan de todo: cobrar, atender, ordenar estantes y recibir a los proveedores.
-           Cuenta con un sistema de facturación pero con ciertas fallas, algunos de estos son: fallos en el inventario digital, mismo sistema compartido con otras sucursales, fallos en la confirmación de pagos en QR. <br>
-           El siguiente trabajo busca resolver dichos porblemas para optimizar, agilizar y garantizar el buen funcionamiento del sistema.
-          </p>
 
-         <p>El documento del proyecto se estructura en tres etapas secuenciales: inicia con la sección de Generalidades y Marco Teórico, que abarca desde la introducción, antecedentes, 
-           planteamiento del problema con su respectivo árbol de causas y efectos, hasta los objetivos, justificación, alcance, metodología e instrumentos de recolección y el cronograma 
-           de actividades; continúa con la fase de Análisis y Diseño Estructurado, orientada a modelar los procesos y flujos de información del negocio; y concluye con la fase de Análisis 
-           y Diseño Orientado a Objetos, donde se formalizan los requerimientos del sistema aplicando lenguaje UML (casos de uso, diagramas de clases y de interacción) para consolidar la 
-           propuesta técnica.</p> 
+        <div class="row g-4 mb-4">
+          <div class="col-md-12">
+            <div class="card card-contexto p-4">
+              <h4 class="h6 fw-bold text-tienda mb-2"><i class="bi bi-info-circle-fill me-2"></i>Presentación y Contexto del Proyecto</h4>
+              <p class="mb-3">
+                El <strong>MiniMarket 1 Eleven (One Eleven)</strong> proporciona productos de calidad y buen precio accesibles para todo público, ofreciendo desde artículos básicos del hogar, lácteos y bebidas, hasta útiles de oficina, cosmética y regalos. Es una tienda estratégica atendida por turnos de 1 a 2 personas (de un equipo de 3 trabajadores por sucursal) que se encargan de todo el flujo operativo: atención al cliente, cobro en caja, reposición de estantes y recepción de proveedores.
+              </p>
+              <p class="mb-0">
+                Actualmente, el negocio opera con un sistema de Punto de Venta (Odoo POS) para la facturación e inventario que presenta diversas limitaciones operativas: inconsistencias en el stock digital al compartir una misma base de inventario entre varias sucursales, omisión de productos menores en el catálogo oficial, ausencia de cierres de caja por turno y demoras en el registro de ventas. El presente trabajo de investigación busca analizar y diseñar una solución informática integral para optimizar, agilizar y garantizar la fiabilidad de la facturación y el control de inventarios.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="h5 fw-bold mb-3">Estructura Metodológica del Documento</h3>
+        <p class="text-muted small mb-3">El proyecto se desarrolla de forma iterativa e incremental en tres etapas secuenciales:</p>
+
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="card card-contexto h-100 p-3 bg-suave border-0">
+              <div class="fw-bold text-tienda mb-2"><span class="badge bg-tienda me-2">Etapa I</span>Marco Teórico</div>
+              <p class="small mb-0 text-secondary">Abarca la introducción, antecedentes organizacionales y del sistema, planteamiento del problema, árbol de causas y efectos, formulación, objetivos, metodología, instrumentos de recolección y cronograma de actividades.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card card-contexto h-100 p-3 bg-suave border-0">
+              <div class="fw-bold text-tienda mb-2"><span class="badge bg-tienda me-2">Etapa II</span>Análisis Estructurado</div>
+              <p class="small mb-0 text-secondary">Orientada a modelar la arquitectura de procesos y flujos de información del negocio mediante el Diagrama de Contexto, Diagramas de Flujo de Datos (DFD), Diccionario de Datos y el Modelo Entidad-Relación (DER).</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card card-contexto h-100 p-3 bg-suave border-0">
+              <div class="fw-bold text-tienda mb-2"><span class="badge bg-tienda me-2">Etapa III</span>Orientación a Objetos</div>
+              <p class="small mb-0 text-secondary">Formaliza los requerimientos técnicos aplicando el Lenguaje Unificado de Modelado (UML) a través de diagramas de casos de uso, clases, secuencia, actividades, estados, componentes y despliegue.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- ANTECEDENTES -->
+    <!-- ANTECEDENTES Y CONTEXTO ORGANIZACIONAL (Persona 2) -->
     <section id="p-antecedentes" class="panel d-none py-5">
-      <div class="container" style="max-width: 860px;">
-        <div class="seccion-etiqueta text-tienda">Parte I</div>
-        <h2 class="seccion-titulo mb-4">Antecedentes</h2>
-        <div class="pista p-3 rounded mb-4 small">
-          <strong>Qué incluir:</strong> qué se ha hecho antes sobre este tema o sistemas parecidos, la situación actual y las fuentes consultadas.
+      <div class="container" style="max-width: 960px;">
+        <div class="seccion-etiqueta text-tienda">Parte I · Contexto Organizacional</div>
+        <h2 class="seccion-titulo mb-4">Antecedentes y Contexto de la Organización</h2>
+
+        <!-- 1. Identidad Visual, Logo y Datos de la Empresa -->
+        <div class="card card-contexto p-4 mb-4 shadow-sm">
+          <div class="row align-items-center g-4">
+            <div class="col-md-4">
+              <div class="logo-eleven-box">
+                <div class="logo-eleven-inner">
+                  <span class="logo-eleven-num">1</span>
+                  <span class="logo-eleven-text">ELEVEN</span>
+                </div>
+              </div>
+              <div class="text-center mt-2 small text-muted">Identidad visual de MiniMarket 1 Eleven (La Paz)</div>
+            </div>
+            <div class="col-md-8">
+              <span class="badge bg-warning text-dark mb-2"><i class="bi bi-geo-alt-fill me-1"></i>Casa Matriz · Av. Arce, La Paz</span>
+              <h3 class="h4 fw-bold mb-2">Historia y Antecedentes de "One Eleven"</h3>
+              <p class="mb-3">
+                <strong>One Eleven (1 Eleven)</strong> es una cadena de minimarkets en la ciudad de La Paz que cuenta con <strong>6 años de trayectoria</strong> en el mercado local. Su Casa Matriz (Punto de Venta 0) se encuentra estratégicamente ubicada en la <strong>Av. Arce</strong>, operando bajo el NIT <code>4262331017</code>.
+              </p>
+              <p class="mb-3">
+                A diferencia de una tienda de barrio convencional, el negocio combina el formato de tienda de conveniencia con bazar multipropósito: comercializa desde productos lácteos (PIL), bebidas, snacks y abarrotes, hasta artículos de papelería, bisutería, regalos (peluches, tazas temáticas), cosmética e higiene personal. En la sucursal analizada trabajan <strong>3 empleados</strong> en total, quienes rotan por turnos para cubrir la atención en caja, el ordenamiento de vitrinas y el trato directo con proveedores.
+              </p>
+              <div class="row g-2 small text-secondary border-top pt-3">
+                <div class="col-sm-6"><i class="bi bi-building me-2 text-tienda"></i><strong>Razón Social / Marca:</strong> One Eleven</div>
+                <div class="col-sm-6"><i class="bi bi-receipt me-2 text-tienda"></i><strong>NIT Casa Matriz:</strong> 4262331017</div>
+                <div class="col-sm-6"><i class="bi bi-telephone me-2 text-tienda"></i><strong>Contacto Sucursal:</strong> 76274407</div>
+                <div class="col-sm-6"><i class="bi bi-laptop me-2 text-tienda"></i><strong>Sistema Actual:</strong> Odoo POS (En línea)</div>
+              </div>
+            </div>
+          </div>
         </div>
-        <p>Escribe aquí los antecedentes del tema.</p>
-        <ul>
-          <li>Antecedente 1 (fuente, año)</li>
-          <li>Antecedente 2 (fuente, año)</li> 
-          <li>Antecedente 3 (fuente, año)</li>
-        </ul>
+
+        <!-- 2. Misión y Visión -->
+        <div class="row g-4 mb-5">
+          <div class="col-md-6">
+            <div class="card card-contexto h-100 p-4 border-start border-4" style="border-left-color: var(--tienda-primario) !important;">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <i class="bi bi-bullseye fs-4 text-tienda"></i>
+                <h3 class="h5 fw-bold mb-0">Misión</h3>
+              </div>
+              <p class="mb-0 text-secondary">
+                Brindar a los clientes de la ciudad de La Paz una experiencia de compra rápida, cercana y confiable, ofreciendo una amplia variedad de abarrotes, alimentos de consumo diario, artículos escolares y detalles de regalo de calidad a precios accesibles, respaldados por una atención cálida y oportuna en cada sucursal.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card card-contexto h-100 p-4 border-start border-4" style="border-left-color: var(--tienda-acento) !important;">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <i class="bi bi-eye-fill fs-4 text-warning"></i>
+                <h3 class="h5 fw-bold mb-0">Visión</h3>
+              </div>
+              <p class="mb-0 text-secondary">
+                Consolidarse como la red de minimarkets de conveniencia líder y referente en La Paz, destacando por su surtido multipropósito, modernización tecnológica en sus procesos de facturación e inventario por sucursal, y excelencia operativa en el servicio al cliente.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Galería Fotográfica del Negocio Analizado -->
+        <div class="mb-5">
+          <div class="d-flex justify-content-between align-items-end mb-3">
+            <div>
+              <h3 class="h5 fw-bold mb-1"><i class="bi bi-images me-2 text-tienda"></i>Espacio Fotográfico del Negocio e Instalaciones</h3>
+              <p class="small text-muted mb-0">Evidencia visual de la sucursal analizada en la Av. Arce: fachada, exhibidores e inventario físico.</p>
+            </div>
+          </div>
+          <div class="row g-3">
+            <div class="col-md-4 col-sm-6">
+              <div class="card card-contexto p-2 h-100">
+                <img src="1000160832.jpg" onerror="this.src='./imagenes/fachada.jpg'" class="galeria-img" alt="Fachada exterior de MiniMarket 1 Eleven">
+                <div class="p-2 small">
+                  <strong class="d-block text-tienda">Fachada Principal (Av. Arce)</strong>
+                  <span class="text-muted">Ingreso principal a la sucursal y letrero identificativo de 1 Eleven.</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+              <div class="card card-contexto p-2 h-100">
+                <img src="1000160826.jpg" onerror="this.src='./imagenes/metodo_1.jpg'" class="galeria-img" alt="Vitrinas exteriores de regalos y papelería">
+                <div class="p-2 small">
+                  <strong class="d-block text-tienda">Vitrinas de Regalos y Bazar</strong>
+                  <span class="text-muted">Exhibición exterior de peluches, bolsos, termos y artículos de papelería.</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+              <div class="card card-contexto p-2 h-100">
+                <img src="1000160835.jpg" onerror="this.src='./imagenes/registro.jpg'" class="galeria-img" alt="Refrigerador de lácteos PIL y bebidas">
+                <div class="p-2 small">
+                  <strong class="d-block text-tienda">Sector de Lácteos y Refrigerados</strong>
+                  <span class="text-muted">Frigorífico con línea de lácteos PIL, yogures, jugos, embutidos y panadería.</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+              <div class="card card-contexto p-2 h-100">
+                <img src="1000160838.jpg" onerror="this.src='./imagenes/Caja.jpg'" class="galeria-img" alt="Estanterías interiores de abarrotes e higiene">
+                <div class="p-2 small">
+                  <strong class="d-block text-tienda">Pasillo de Abarrotes e Higiene</strong>
+                  <span class="text-muted">Estantes con bebidas, mermeladas, condimentos, artículos de limpieza y pañales.</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+              <div class="card card-contexto p-2 h-100">
+                <img src="1000160829.jpg" onerror="this.src='./imagenes/entrevista.jpg'" class="galeria-img" alt="Interior del local y vitrinas">
+                <div class="p-2 small">
+                  <strong class="d-block text-tienda">Pasillo Interior y Descartables</strong>
+                  <span class="text-muted">Vista interna hacia la entrada, con productos desechables Belen, snacks y regalos.</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+              <div class="card card-contexto p-2 h-100">
+                <img src="1000160795.jpg" onerror="this.src='./imagenes/Caja.jpg'" class="galeria-img" alt="Pantalla del sistema Odoo POS y factura">
+                <div class="p-2 small">
+                  <strong class="d-block text-tienda">Terminal Punto de Venta (Odoo POS)</strong>
+                  <span class="text-muted">Monitor táctil ELO ejecutando Odoo POS en línea con emisión de factura del SIN.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Antecedentes del Sistema Actual (Odoo POS) -->
+        <div class="card card-contexto p-4 mb-5 bg-suave border-0">
+          <h3 class="h5 fw-bold text-tienda mb-3"><i class="bi bi-cpu-fill me-2"></i>Antecedentes del Sistema Informático Actual (Odoo POS)</h3>
+          <p class="mb-3">
+            Para la gestión de ventas y facturación en línea (modalidad computarizada en línea aprobada por el SIN), el minimarket utiliza la plataforma web <strong>Odoo POS</strong> sobre un monitor táctil marca <em>ELO</em> con el navegador Brave y la utilidad de impresión térmica <em>QZ Tray</em>. Cada uno de los 3 empleados ingresa con su propio usuario y contraseña, mientras que la administradora general supervisa los movimientos de todas las tiendas en tiempo real desde su laptop.
+          </p>
+          <p class="small fw-bold text-secondary mb-2">Categorías configuradas actualmente en la interfaz de Odoo POS:</p>
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <span class="badge badge-categoria">Activos fijos y misceláneos</span>
+            <span class="badge badge-categoria">Alimentos y bebidas no perecederas</span>
+            <span class="badge badge-categoria">Cosmética, perfumería e higiene personal</span>
+            <span class="badge badge-categoria">Especias y condimentos secos</span>
+            <span class="badge badge-categoria">Joyas, bisutería y artículos de adorno</span>
+            <span class="badge badge-categoria">Papelería y útiles de oficina</span>
+            <span class="badge badge-categoria">Productos de higiene personal (agrupado)</span>
+            <span class="badge badge-categoria">Utensilios de cocina, vajilla y cubiertos</span>
+          </div>
+          <p class="mb-0 small text-secondary">
+            El sistema permite facturar con datos nominativos del cliente (CI/NIT) o agrupar transacciones rápidas bajo la razón social <strong>"Ventas Menores del Día" (NIT 99003)</strong>, aceptando pagos en efectivo, código QR y tarjeta.
+          </p>
+        </div>
+
+        <!-- 5. Reseña del Problema Actual Detectado en la Entrevista -->
+        <div>
+          <h3 class="h5 fw-bold mb-2"><i class="bi bi-clipboard2-pulse-fill me-2 text-danger"></i>Reseña del Problema Actual Detectado en la Entrevista</h3>
+          <p class="text-muted small mb-4">Síntesis de los hallazgos críticos levantados durante la entrevista y observación directa en la sucursal:</p>
+
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="card card-contexto h-100 p-3">
+                <div class="d-flex align-items-center gap-2 mb-2 text-danger fw-bold">
+                  <i class="bi bi-boxes fs-5"></i>
+                  <span>1. Inventario compartido y bajas inexplicables</span>
+                </div>
+                <p class="small text-secondary mb-0">
+                  Todas las sucursales comparten una única base de inventario en Odoo. Cuando una sucursal vende un ítem, afecta el conteo global, provocando que el sistema marque stock disponible cuando físicamente está agotado en el local, o que las existencias disminuyan sin razón aparente.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card card-contexto h-100 p-3">
+                <div class="d-flex align-items-center gap-2 mb-2 text-danger fw-bold">
+                  <i class="bi bi-tags-fill fs-5"></i>
+                  <span>2. Productos sin registro y alteración de precios</span>
+                </div>
+                <p class="small text-secondary mb-0">
+                  Existen productos en tienda que no están dados de alta en el catálogo de Odoo ni se cuenta con lector de código de barras. Si un cliente exige factura por uno de estos artículos, el cajero debe seleccionar otro producto de nombre similar y modificar manualmente su precio en pantalla, distorsionando el kardex real.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card card-contexto h-100 p-3">
+                <div class="d-flex align-items-center gap-2 mb-2 text-danger fw-bold">
+                  <i class="bi bi-journal-x fs-5"></i>
+                  <span>3. Uso de un sistema paralelo para ventas menores</span>
+                </div>
+                <p class="small text-secondary mb-0">
+                  No todos los artículos salen con factura (como dulces sueltos y ventas pequeñas desde Bs 0,50). Todo aquello que no puede registrarse en el sistema oficial de Odoo debe anotarse en un sistema aparte, dividiendo la información financiera del negocio.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card card-contexto h-100 p-3">
+                <div class="d-flex align-items-center gap-2 mb-2 text-danger fw-bold">
+                  <i class="bi bi-clock-history fs-5"></i>
+                  <span>4. Ausencia de arqueos y cierres de caja por turno</span>
+                </div>
+                <p class="small text-secondary mb-0">
+                  Aunque los 3 empleados poseen credenciales individuales, no existe un registro del total de ventas por cada turno. El único cierre y recuento de caja se efectúa al finalizar el día, dificultando deslindar responsabilidades ante faltantes de efectivo.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="card card-contexto p-3">
+                <div class="d-flex align-items-center gap-2 mb-2 text-danger fw-bold">
+                  <i class="bi bi-truck fs-5"></i>
+                  <span>5. Gestión reactiva de proveedores, mermas y productos más vendidos</span>
+                </div>
+                <p class="small text-secondary mb-0">
+                  El sistema no genera alertas de stock mínimo ni reportes de los productos más vendidos; los pedidos se realizan llamando por teléfono al proveedor recién cuando la mercadería se acaba o cuando los distribuidores visitan la tienda. Además, no hay control automatizado de fechas de caducidad, siendo muy pocos los proveedores que aceptan reposición por vencimiento (únicamente <strong>Coca-Cola, Torito y Agua Cielo</strong>).
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -251,7 +556,7 @@
         <div class="seccion-etiqueta text-tienda">Parte I</div>
         <h2 class="seccion-titulo mb-4">Árbol de problemas</h2>
         <figure class="text-center">
-          <img src="imagenes/arbol-problemas.png"
+          <img src="./imagenes/arbol-problemas.png"
                alt="Árbol de problemas de MiniMarket Eleven: efectos, problema central y causas"
                class="img-fluid border rounded">
           <figcaption class="small text-muted mt-2">Figura: Árbol de problemas. Elaboración propia.</figcaption>
@@ -708,17 +1013,19 @@
       { nombre: 'Publicar URL, entregar y defender (8 dic)', de: 6, a: 6, hito: true }
     ];
     const t = document.getElementById('gantt');
-    let html = '<thead class="table-light"><tr><th class="text-start">Actividad</th>' +
-      semanas.map(s => '<th>' + s + '</th>').join('') + '</tr></thead><tbody>';
-    tareas.forEach(x => {
-      html += '<tr><td class="tarea">' + x.nombre + '</td>';
-      semanas.forEach((_, i) => {
-        const dentro = i >= x.de && i <= x.a;
-        html += '<td class="' + (dentro ? (x.hito ? 'hito' : 'barra') : '') + '"></td>';
+    if (t) {
+      let html = '<thead class="table-light"><tr><th class="text-start">Actividad</th>' +
+        semanas.map(s => '<th>' + s + '</th>').join('') + '</tr></thead><tbody>';
+      tareas.forEach(x => {
+        html += '<tr><td class="tarea">' + x.nombre + '</td>';
+        semanas.forEach((_, i) => {
+          const dentro = i >= x.de && i <= x.a;
+          html += '<td class="' + (dentro ? (x.hito ? 'hito' : 'barra') : '') + '"></td>';
+        });
+        html += '</tr>';
       });
-      html += '</tr>';
-    });
-    t.innerHTML = html + '</tbody>';
+      t.innerHTML = html + '</tbody>';
+    }
 
     ir(location.hash.slice(1) || 'portada', false);
   </script>
