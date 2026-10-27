@@ -239,10 +239,9 @@
       <div class="container" style="max-width: 860px;">
         <div class="seccion-etiqueta text-tienda">Parte I</div>
         <h2 class="seccion-titulo mb-4">Planteamiento del problema</h2>
-        <div class="pista p-3 rounded mb-4 small">
-          <strong>Qué incluir:</strong> describe la situación problemática, quiénes la sufren, dónde ocurre y qué consecuencias tiene.
-        </div>
-        <p>Describe aquí el problema que Elen busca resolver.</p>
+        <p>Eleven es una tienda con varias sucursales que comercializa productos de rubros muy distintos: alimentos, bebidas, útiles escolares, regalos y accesorios electrónicos. Todas las sucursales comparten un mismo sistema de inventario desarrollado en Odoo, al que también accede en tiempo real la administradora general de las tiendas. En la sucursal estudiada trabajan tres empleados, cada uno con su propio usuario y contraseña.</p>
+        <p>Actualmente el sistema presenta problemas que afectan la confiabilidad de la información. El stock de algunos productos disminuye sin una causa identificada y, al compartirse el inventario entre sucursales, puede haber un producto disponible en una sucursal y agotado en otra. Además, existen productos que no están registrados: cuando un cliente solicita factura, se selecciona un producto de nombre similar y se modifica su precio, y lo que no se anota en el sistema principal se registra en un sistema aparte.</p>
+        <p>A esto se suma que el único cierre de caja se realiza al final del día y no existe un registro del total de ventas por turno. La reposición se hace de forma reactiva, llamando al proveedor cuando el producto se agota, y ante productos vencidos solo tres proveedores (Coca Cola, Torito y Agua Cielo) aceptan el cambio. En conjunto, esta situación dificulta contar con información confiable de ventas e inventario, por lo que se hace necesario analizar y diseñar una solución que permita resolverla.</p>
       </div>
     </section>
 
@@ -251,24 +250,12 @@
       <div class="container" style="max-width: 960px;">
         <div class="seccion-etiqueta text-tienda">Parte I</div>
         <h2 class="seccion-titulo mb-4">Árbol de problemas</h2>
-        <div class="pista p-3 rounded mb-4 small">
-          <strong>Cómo leerlo:</strong> los <em>efectos</em> van arriba, el <em>problema central</em> en el medio y las <em>causas</em> abajo. Cambia los textos y, para la entrega impresa, dibújalo con una herramienta automatizada (Draw.io, por ejemplo).
-        </div>
-        <div class="arbol">
-          <div class="fila">
-            <div class="caja efecto">Efecto 1</div>
-            <div class="caja efecto">Efecto 2</div>
-            <div class="caja efecto">Efecto 3</div>
-          </div>
-          <div class="flecha"><i class="bi bi-arrow-up"></i> Efectos</div>
-          <div class="caja central">Problema central: describe aquí el problema</div>
-          <div class="flecha"><i class="bi bi-arrow-up"></i> Causas</div>
-          <div class="fila">
-            <div class="caja causa">Causa 1</div>
-            <div class="caja causa">Causa 2</div>
-            <div class="caja causa">Causa 3</div>
-          </div>
-        </div>
+        <figure class="text-center">
+          <img src="arbol-problemas.png"
+               alt="Árbol de problemas de MiniMarket Eleven: efectos, problema central y causas"
+               class="img-fluid border rounded">
+          <figcaption class="small text-muted mt-2">Figura: Árbol de problemas. Elaboración propia.</figcaption>
+        </figure>
       </div>
     </section>
 
